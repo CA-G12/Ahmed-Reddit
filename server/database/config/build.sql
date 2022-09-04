@@ -27,7 +27,7 @@ CREATE TABLE comments(
     FOREIGN KEY(post_id) REFERENCES posts(id)
 );
 
-CREATE TABLE likes(
+CREATE TABLE votes(
     id SERIAL PRIMARY KEY,
     user_id INT,
     post_id INT,

@@ -24,7 +24,7 @@ INSERT INTO comments (comment, user_id, post_id) values
  ('comment52', 5, 2),
  ('comment25', 2, 5);
 
- INSERT INTO likes ( user_id, post_id) values 
+ INSERT INTO votes ( user_id, post_id) values 
  (1, 3),
  (1, 4),
  (4, 1),
