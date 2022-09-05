@@ -15,7 +15,7 @@ const profile = (req, res, next) => {
         email,
         img, 
       } = decoded;
-      profileQuery().then((data) => {
+      profileQuery(id).then((data) => {
         const userData = { posts: data.rows, id, name, email, img};
         res.json(userData);
       }).catch((err) => next(err));
@@ -24,28 +24,3 @@ const profile = (req, res, next) => {
 };
 
 module.exports = { profile };
-
-
-/*
-const jwt = require('jsonwebtoken');
-require('dotenv').config();
-  const { token } = req.cookies;
-  jwt.verify(token, SECRET, (error, decoded) => {
-    if (error) {
-      res.sendStatus(401);
-    } else {
-      const {
-        id,
-        name,
-        email,
-        img,
-      } = decoded;
-      profileQuery(decoded.id).then((posts) => {
-        const userData = { posts: posts.rows, id, name, email, img};
-        res.json(userData);
-      }).catch(console.error);
-    }
-  });
-
-
-*/
