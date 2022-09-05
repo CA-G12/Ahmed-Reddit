@@ -15,6 +15,7 @@ INSERT INTO posts (post, likes, user_id) values
  ('MaiPost', 8, 6),
  ('AlanPost' , 10, 2),
  ('AhmedPost', 12, 3),
+('MohammadPost2', 5, 1),
  ('JohnPost', 14, 7);
 
 INSERT INTO comments (comment, user_id, post_id) values 
