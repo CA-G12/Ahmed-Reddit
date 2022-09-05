@@ -7,7 +7,6 @@ const { signUpSchema } = require('../../validation');
 
 const signUp = (req, res, next) => {
   const { error, value } = signUpSchema.validate(req.body);
-  console.log(error,value);
   if (error) {
     res.status(401).send({ message: error.details[0].message, state: 'fail' });
   } else {
