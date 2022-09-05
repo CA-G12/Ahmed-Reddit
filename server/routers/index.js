@@ -1,11 +1,11 @@
 const { Router } = require('express');
-// const postsRouter = require('./posts');
+const postsRouter = require('./posts');
 const userRouter = require('./user');
 const registerRouter = require('./register');
 
 const router = Router();
 
-// router.use(postsRouter);
+router.use(postsRouter);
 router.use(userRouter);
 router.use(registerRouter);
 
