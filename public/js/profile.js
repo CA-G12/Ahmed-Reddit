@@ -39,8 +39,8 @@ const fetchProfile = () => {
   fetch('/user/profile')
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
-      if (data.message === 'Unauthenticated') window.location.href = '/sign-up';
+      console.log(data.message);
+      if (data.message === "unauthenticated") window.location.href = '/sign-up';
       else handleDom(data);
     });
 };
@@ -62,5 +62,18 @@ submit.addEventListener('click', () => {
     .then((res) => res.json())
     .then((res) => {
       fetchProfile();
+    });
+});
+
+
+/// log out
+
+const logOut = document.querySelector('.fa-right-from-bracket');
+
+logOut.addEventListener('click', () => {
+  fetch('/user/sign-out')
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.message === 'redirect') window.location.href = '/';
     });
 });
