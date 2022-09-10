@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html{
+  font-size: 10px;
+}
+
+:root {
+  --main: rgb(39 37 37);;
+  --secondery: #000;
+  --light-support: #F4F4F4;
+  --heavy-support: #CBCBCB;
+  --white: #fff;
+  --second-color: rgb(255, 177, 141);
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f98500;
+}
+
+#form {
+  width: 30%;
+  background-color: #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 4rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  gap: 3rem;
+}
+
+#form h1 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: orangered;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+}
+
+#form input {
+  width: 100%;
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  border: 0;
+  outline: 1px solid var(--secondery);
+}
+
+#form button {
+  background-color: orangered;
+  border: 0;
+  outline: 0;
+  color: aliceblue;
+  padding: 0.8rem 5rem;
+  cursor: pointer;
+  border-radius: 1rem;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.332);
+}
+
+#form button:hover {
+  outline: 2px solid var(--main);
+  color: #222;
+
+  background-color: inherit;
+  color: var(--main);
+}
