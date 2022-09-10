@@ -10,11 +10,17 @@ const createEle = (ele, className) => {
   return e;
 }
 
+const deletePost = (e) =>{
+  const { id } = e;
+  fetch(`/post/delete-post/${id}`)
+    .then((res) => { fetchProfile() })
+};
+
 const handleDom = (data) => {
+  allPosts.textContent = '';
   userName.textContent = data.name;
   userImg.src = data.img;
-  console.log(data.img);
-  for(let i = 0; i < data.posts.length; i++) {
+  for(let i = data.posts.length - 1; i >= 0 ; i--) {
     const post = createEle('div', 'post');
     const xmarkIcon = createEle('i', 'fa-solid');
     xmarkIcon.classList.add('fa-xmark');
@@ -31,7 +37,10 @@ const handleDom = (data) => {
     like.appendChild(thumbsIcon);
     post.appendChild(like);
     allPosts.appendChild(post);
-    postContent.value = '';
+    xmarkIcon.addEventListener('click' ,() => {
+      deletePost(data.posts[i])
+    })
+    // xmarkIcon.addEventListener('click', deletePost(data.posts[i]));
 }
 }
 
@@ -39,7 +48,6 @@ const fetchProfile = () => {
   fetch('/user/profile')
     .then((res) => res.json())
     .then((data) => {
-      console.log(data.message);
       if (data.message === "unauthenticated") window.location.href = '/sign-up';
       else handleDom(data);
     });
@@ -51,6 +59,7 @@ fetchProfile();
 
 submit.addEventListener('click', () => {
   const post = { post: postContent.value };
+  postContent.value = '';
 
   fetch('/post/add-post', {
     method: 'POST',
