@@ -40,7 +40,6 @@ const handleDom = (data) => {
     xmarkIcon.addEventListener('click' ,() => {
       deletePost(data.posts[i])
     })
-    // xmarkIcon.addEventListener('click', deletePost(data.posts[i]));
 }
 }
 
