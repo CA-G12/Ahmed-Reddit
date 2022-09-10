@@ -21,10 +21,29 @@ const handleDom = (data) => {
     likeIcon.classList = 'fa-solid fa-thumbs-up';
 
     likeIcon.addEventListener('click', (event) => {
-      if (event.target.style.color === 'rgb(45, 134, 255)')
-        event.target.style.color = '#fff';
-      else
-        event.target.style.color = '#2d86ff';
+        const id = { postId: e.id };
+        fetch('/post/add-like', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(id),
+          })
+           .then((res) => res.json())
+           .then((data) => {
+            if (data.message === "unauthenticated") window.location.href = '/sign-up';
+            else{
+                if (event.target.style.color === 'rgb(45, 134, 255)'){
+                    event.target.style.color = '#fff';
+                    num.textContent =  parseInt(num.textContent) -1;
+                  }
+                  else{
+                      event.target.style.color = '#2d86ff';
+                      num.textContent =  parseInt(num.textContent) +1;
+                  }
+            }
+           })
+
     });
 
     img.src = e.img;
@@ -41,8 +60,8 @@ const handleDom = (data) => {
 
 const fetchFeed = () => {
   fetch('/user/feed')
-    .then((data) => data.json())
-    .then((result) => handleDom(result));
+   .then((data) => data.json())
+   .then((result) => handleDom(result));
 };
 
 fetchFeed();

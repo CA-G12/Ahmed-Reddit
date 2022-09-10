@@ -1,5 +1,6 @@
 const {
   addCommentQuery,
+  LikeQuery,
   addLikeQuery,
   addPostQuery,
   deleteCommentQuery,
@@ -13,6 +14,7 @@ const { feedQuery, profileQuery } = require('./user');
 
 module.exports = {
   addCommentQuery,
+  LikeQuery,
   addLikeQuery,
   addPostQuery,
   deleteCommentQuery,
